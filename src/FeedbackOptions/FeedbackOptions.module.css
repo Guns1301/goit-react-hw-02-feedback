@@ -12,7 +12,7 @@
   min-width: 150px;
   font-size: 20px;
   font-weight: 500;
-  border: 1px solid tomato;
+  border: 1px solid midnightblue;
   background-color: #fff;
   border-radius: 4px;
   text-transform: uppercase;
@@ -22,7 +22,7 @@
 .feedbackButton:hover,
 .feedbackButton:focus {
   color: white;
-  background-color: tomato;
+  background-color: cornflowerblue;
 }
 
 .feedbackButton:not(:last-child) {
