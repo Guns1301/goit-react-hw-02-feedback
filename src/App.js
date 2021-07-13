@@ -6,7 +6,12 @@ import Notification from "./Notification/Notification.js";
 
 import "./App.css";
 
+//чтобы превратить функцию в класс нужно из React унаследовать Component
 class App extends Component {
+  //static defaultProps = {}; и static PropTypes = {};
+  // в Классах defaultPropsоп и PropTypes описывается внутри класса ,
+  // после идет state = {}; затем кастомные методы () и последним метод render(){return};
+
   state = {
     good: 0,
     neutral: 0,
@@ -17,10 +22,11 @@ class App extends Component {
     const { name } = event.currentTarget;
 
     this.setState((prevState) => ({
-      [name]: prevState[name] + 1,
+      [name]: prevState[name] + 1, // в prevState реакт передаст во время обновления актуальное состояние объекта state. эта функция должна вернуть обновленный state
     }));
   };
 
+  // что бы привязать контекст нужно создать публичный метод класса.
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -30,7 +36,7 @@ class App extends Component {
       ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
       : 0;
   };
-  // у Класса есть метод рендер -
+  // Необходимо объявить обязательный метод render(), который вызывается по умолчанию и возвращает JSX-разметку.
   render() {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
